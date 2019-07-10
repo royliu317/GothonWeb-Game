@@ -55,7 +55,3 @@ def test_gothon_game_map():
     assert_equal(room3.go('2'), the_end_winner)
     assert_equal(room3.go('*'), the_end_loser)
 
-
-
-# assert_equal()是nose.tools模块中的一个方法。nose.tools中还有很多assert的函数工具： https://www.cnblogs.com/landhu/p/5664613.html
-# assert_equal(first, second, msg=None)	两个对像对比，使用"=="操作对比

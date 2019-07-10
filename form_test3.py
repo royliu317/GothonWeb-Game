@@ -1,4 +1,4 @@
-# 本代码用于测试书中关于页面布局（Page Layout）的使用
+# Below code is used to test the usage of Page Layout
 
 from flask import Flask
 from flask import render_template

@@ -5,14 +5,14 @@ class Room(object):
         self.description = description
         self.next_paths = {}
 
-    def add_paths(self, path):                   # 完善room object的next_paths属性。即给room添加各种可能的next path（由于next path会走到哪个room，取决于用户的action，所以room_object.next_paths属性应是字典类型: {action: next_room_object} )
-        self.next_paths.update(path)             # dict.update(dict2)，亦即传入的参数path必须也是字典类型
+    def add_paths(self, path):                   # Set next_paths property for room object, which is to add all possible next path for the room（Since next path is dependant on Player's action，so the property of room_object.next_paths should be dictionary type: {action: next_room_object} )
+        self.next_paths.update(path)             # dict.update(dict2)，which also means the path must be dictionary type
 
-    def go(self, action):                        # 会根据用户的输入，返回next path。即通过next_paths属性的action键，返回next_room_object值
-        return self.next_paths.get(action, None) # dict.get(), 返回字典中指定key的value，若值不在字典中则返回默认值
+    def go(self, action):                        # Return next path based on Player's input (get the value of next_room_object from the key of action in next_paths property)
+        return self.next_paths.get(action, None) # dict.get(), return specific value of the key from dictionary. It will return default value if not found out.
 
 
-# 首先，实例化如下room，并完善每个对象的description属性（用于在html页面中中显示）：
+# First, instantiate the room and perfect the description property of each object（used to show in html page）：
 
 central_corridor = Room("Central Corridor",
 """
@@ -90,9 +90,9 @@ generic_death = Room("death", "You died.")
 
 
 
-# 然后，对于有next path的room，完善其字典类型paths属性（对于ending场景则无需再完善，因为它们不会再有next path）
+# Second，perfect paths property for the room which has next path
 
-central_corridor.add_paths({         # 字典的value并不是字符串（没有引号！），而是room类的实例化对象
+central_corridor.add_paths({         # the value of dictionary is not string type but the instantiation of room class
     'shoot': generic_death,
     'dodge': generic_death,
     'tell a joke': laser_weapon_armory,
@@ -101,7 +101,7 @@ central_corridor.add_paths({         # 字典的value并不是字符串（没有
 
 laser_weapon_armory.add_paths({
     '12': the_bridge,
-    '*': generic_death               # 新的转换模式，以'*'为标记，用来在游戏引擎中实现“捕获所有操作”的功能
+    '*': generic_death               # new transform mode which marked as '*' . It is used to "capture all actions" in the game engine.
 })
 
 
@@ -121,17 +121,17 @@ escape_pod.add_paths({
 START = 'central_corridor'
 
 
-def load_room(room_name):            # 加载房间对象。即传入room_name，返回room_object(通过globals字典实现)
+def load_room(room_name):            # Load room object
     """
     There is a potential security problem here.
     Who gets to set name? Can that expose a variable?
     """
-    return globals().get(room_name)  # 从globals字典中，通过键room_name，返回值room_object
-                                     # global()全局变量字典会包含：{room_name: room_object}，例如：
+    return globals().get(room_name)  # Use roon_name key to return room_object value in globals dictionary
+                                     # global() dictionary includes：{room_name: room_object}，such as：
                                      # {..., 'central_corridor': <gothonweb.planisphere.Room object at 0x0000000003492BE0>),...}
  
 
-def name_room(room_object):          # 取得房间名称。即传入room_object，返回room_name
+def name_room(room_object):          # Get room name
     """
     Same possible security problem. Can you trust room?
     What's a better solution than this globals lookup?
@@ -144,32 +144,3 @@ def name_room(room_object):          # 取得房间名称。即传入room_object
 ##print("globals() = ", globals())
 ##print("globals().items = ", globals().items())
 
-
-
-# globals() 函数会以字典类型返回当前位置的全部全局变量。
-# 参数: 无; 返回值: 返回全局变量的字典。运行结果如下例：
-#globals() =  { ..., 'Room': <class 'gothonweb.planisphere.Room'>, 
-#'central_corridor': <gothonweb.planisphere.Room object at 0x0000000003491CC0>, 
-#'laser_weapon_armory': <gothonweb.planisphere.Room object at 0x0000000003491CF8>, 
-#'the_bridge': <gothonweb.planisphere.Room object at 0x0000000003491D30>, 
-#'escape_pod': <gothonweb.planisphere.Room object at 0x0000000003491D68>,
-#'the_end_winner': <gothonweb.planisphere.Room object at 0x0000000003491DA0>, 
-#'the_end_loser': <gothonweb.planisphere.Room object at 0x0000000003491DD8>, 
-#'generic_death': <gothonweb.planisphere.Room object at 0x0000000003491E10>, 
-#'START': 'central_corridor', 
-#'load_room': <function load_room at 0x0000000003486F28>, 
-#'name_room': <function name_room at 0x0000000003496378>, ...}
-
-
-#dict.items()方法 以列表返回可遍历的(键, 值) 元组数组。运行结果如下例：
-#globals().items =  dict_items([..., ('Room', <class 'gothonweb.planisphere.Room'>), 
-#('central_corridor', <gothonweb.planisphere.Room object at 0x0000000003491CC0>), 
-#('laser_weapon_armory', <gothonweb.planisphere.Room object at 0x0000000003491CF8>), 
-#('the_bridge', <gothonweb.planisphere.Room object at 0x0000000003491D30>), 
-#('escape_pod', <gothonweb.planisphere.Room object at 0x0000000003491D68>), 
-#('the_end_winner',<gothonweb.planisphere.Room object at 0x0000000003491DA0>), 
-#('the_end_loser', <gothonweb.planisphere.Room object at 0x0000000003491DD8>), 
-#('generic_death', <gothonweb.planisphere.Room object at 0x0000000003491E10>), 
-#('START', 'central_corridor'), 
-#('load_room', <function load_room at 0x0000000003486F28>), 
-#('name_room', <function name_room at 0x0000000003496378>), ...])
