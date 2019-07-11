@@ -3,7 +3,7 @@
 
 
 # Description
- This is a text-based adventure game likes *Zork* or *Adventure*, and it is called *Gothons From Planet Percal #25*. 
+ This is a text-based adventure game likes **Zork** or **Adventure**, and it is called **Gothons From Planet Percal #25**. 
  
  The background is the alien has invaded our spacecraft, and you are the one, who needs to go across the maze made by kinds of rooms, beat the aliens, get the Lifeboat, and return to our planet.
  
@@ -26,7 +26,7 @@ Here's what's happening when your browser hits your application:
 
 
 # How the Web Works?
-![Web Flow](/img/Web flow.png)
+![Flow](/img/flow.png)
 1. You type in the url http://test.com// into your browser, and it sends the request on line (A) to your computer's network interface.
 2. Your request goes out over the internet on line (B) and then to the remote computer on line (C) where my server accepts the request.
 3. Once my computer accepts it, my web application gets it on line (D), and my Python code runs the index.GET handler.
