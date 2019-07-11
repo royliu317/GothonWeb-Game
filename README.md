@@ -27,7 +27,7 @@ Here's what's happening when your browser hits your application:
 
 # How the Web Works?
 ![Flow](/img/Flow.png)
-1. You type in the url http://test.com// into your browser, and it sends the request on line (A) to your computer's network interface.
+1. You type in the url http://test.com/ into your browser, and it sends the request on line (A) to your computer's network interface.
 2. Your request goes out over the internet on line (B) and then to the remote computer on line (C) where my server accepts the request.
 3. Once my computer accepts it, my web application gets it on line (D), and my Python code runs the index.GET handler.
 4. The response comes out of my Python server when I return it, and it goes back to your browser over line (D) again.
@@ -44,10 +44,10 @@ Here's what's happening when your browser hits your application:
 
 | Language  |  Usage |
 | --- | --- |
-| HTML    |  handle the rendering and display of the webpages |
+| HTML    |  Handle the rendering and display of webpages |
 | Python  |  Build the classes and functions, handle web app's circulation, test the functionalities of the game|
 
-# More Resources:
+# More Resources
 -   [Flask - web development, one drop at a time](http://flask.pocoo.org/docs/1.0/)
 -   [Jinja2 - a templating engine for Python](http://jinja.pocoo.org/docs/2.9/)
 -   [nosetests - nicer testing for Python](https://nose.readthedocs.io/en/latest/man.html)
