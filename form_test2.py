@@ -11,9 +11,9 @@ def index():
     # Moreover, the code has ensured greeting won't be none（at least there is ,）
 
     if request.method == "POST":     
-        greet = request.form['greet']   # greet get the input from greet in hello_form.html（None if no input）
-        name = request.form['name']     # name get the input from name in hello_form.html（None if no input）
-        greeting = f'{greet},{name}'    # greeting won't be none
+        greet = request.form['greet']          # greet get the input from greet in hello_form.html（None if no input）
+        name = request.form['name']            # name get the input from name in hello_form.html（None if no input）
+        greeting = f'{greet},{name}'           # greeting won't be none
         return render_template("index.html", greeting = greeting)
     else:
         return render_template("hello_form.html")

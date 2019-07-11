@@ -2,31 +2,31 @@ from nose.tools import *
 from gothonweb.planisphere import *
 
 
-def test_room():            # 测试用例1 - 测试房间基本功能
+def test_room():                                                    # Test Case 1 - Test basic function of the room
     gold_room = Room("Gold Room",
                 """This room has gold in it you can grab. There's a 
                 door to the north.""")
-    assert_equal(gold_room.name, "Gold Room")     # 测试Room的name属性
-    assert_equal(gold_room.paths, {})             # 测试Room的paths属性
+    assert_equal(gold_room.name, "Gold Room")                       # Test name property of the room
+    assert_equal(gold_room.paths, {})                               # Test paths property of the room
 
 
-def test_room_paths():      # 测试用例2 - 测试到达各房间的每条路径
-    center_room = Room("Center Room", "Test room in the center.")   # 创建各条路径上的房间对象
+def test_room_paths():                                              # Test Case 2 - Test paths to each room
+    center_room = Room("Center Room", "Test room in the center.")   # Create paths to each room object
     north_room = Room("North Room", "Test room in the north.")
     south_room = Room("South Room", "Test room in the south.")
 
-    center_room.add_paths({'north': north_room, 'south':south_room}) # 此处的paths维护 {路径：对应的房间对象} 字典
+    center_room.add_paths({'north': north_room, 'south':south_room}) 
 
-    assert_equal(center_room.go('north'), north_room)                # go()表示沿某条路径走，所能到达的房间
+    assert_equal(center_room.go('north'), north_room)                
     assert_equal(center_room.go('south'), south_room)
 
 
-def test_map():             # 测试用例3 - 测试整个地图（起点，能从起点往外走的方向，能走回起点的方向）
-    start = Room("Start", "You can go west and down a hole.")       # 创建各个方向对象。虽然用Room类看上去有点难以理解，
-    west = Room("Trees", "There are trees here, you can go east.")  # 但如果把Room更广义的看作“场景”，而不是单纯的“房间"，就比较好理解了。
+def test_map():                                                     # Test Case 3 - Test the whole map
+    start = Room("Start", "You can go west and down a hole.")       # Create each direction object. Although we use Room class for it seems a bit wired,
+    west = Room("Trees", "There are trees here, you can go east.")  # but if we see room as "scene" rather than a room, it is easier to understand.
     down = Room("Dungeon", "It's dark down here, you can go up.")
 
-    start.add_paths({'west': west, 'down': down})                    # 此处的paths维护 {方向：对应的方向对象} 字典
+    start.add_paths({'west': west, 'down': down})                    
     west.add_paths({'east': start})
     down.add_paths({'up': start})
 
