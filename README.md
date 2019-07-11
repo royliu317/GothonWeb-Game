@@ -3,7 +3,7 @@
 
 
 # Description
- This is a text-based adventure game likes **Zork** or **Adventure**, and it is called **Gothons From Planet Percal #25**. 
+ This is a text-based adventure game called **Gothons From Planet Percal #25** running on web browser, which is similar with **Zork** or **Adventure**. 
  
  The background is the alien has invaded our spacecraft, and you are the one, who needs to go across the maze made by kinds of rooms, beat the aliens, get the Lifeboat, and return to our planet.
  
