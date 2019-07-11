@@ -3,8 +3,10 @@
 
 
 # Description
- This is a text-based adventure game likes <Zork> or <Adventure>, which is called <Gothons From Planet Percal #25>. 
+ This is a text-based adventure game likes *Zork* or *Adventure*, and it is called *Gothons From Planet Percal #25*. 
+ 
  The background is the alien has invaded our spacecraft, and you are the one, who needs to go across the maze made by kinds of rooms, beat the aliens, get the Lifeboat, and return to our planet.
+ 
  The game will use an engine to hold a map with full of rooms. When Player enters a room, it will shows its description and tells the engine what the next room is.
 
 
@@ -24,7 +26,7 @@ Here's what's happening when your browser hits your application:
 
 
 # How the Web Works?
-./img/Web flow.png
+![Web Flow](/img/Web flow.png)
 1. You type in the url http://test.com// into your browser, and it sends the request on line (A) to your computer's network interface.
 2. Your request goes out over the internet on line (B) and then to the remote computer on line (C) where my server accepts the request.
 3. Once my computer accepts it, my web application gets it on line (D), and my Python code runs the index.GET handler.
@@ -34,17 +36,16 @@ Here's what's happening when your browser hits your application:
 7. Finally, your browser then displays the response.
 
 
-# Coding Logic 
+# Code Logic 
  1. Create room class，instantiate each room_object，add next_path property {action: next_room_object} for each room_object
  2. Use room_name to get room_object based on globals() dictionary {room_name：room_object}（Default value is central_corridor）
- 3. Use the action input by Player for trying to get next_room_object baesd on the room_object.next_path property {action: next_room_object}
- 4. If the action is valid，then get next_room_object and go to the next room. If not, then redirect to current room.
+ 3. Use the action input by Player for trying to get next_room_object based on the room_object.next_path property {action: next_room_object}
+ 4. If the action is valid，then get next_room_object and go to the next room. If not, then redirect back to current room.
 
-| html  |  handle the rendering and display of the webpages |
+| Language  |  Usage |
 | --- | --- |
-| flask app   |  handle the access and circulation of web app |
-| python  |  handle the build of classes and function for the game  |
-
+| HTML    |  handle the rendering and display of the webpages |
+| Python  |  Build the classes and functions, handle web app's circulation, test the functionalities of the game|
 
 # More Resources:
 -   [Flask - web development, one drop at a time](http://flask.pocoo.org/docs/1.0/)
