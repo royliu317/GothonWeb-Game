@@ -26,7 +26,7 @@ Here's what's happening when your browser hits your application:
 
 
 # How the Web Works?
-![Web Flow](/img/Web flow.png)
+![Web Flow](./img/Web flow.png)
 1. You type in the url http://test.com// into your browser, and it sends the request on line (A) to your computer's network interface.
 2. Your request goes out over the internet on line (B) and then to the remote computer on line (C) where my server accepts the request.
 3. Once my computer accepts it, my web application gets it on line (D), and my Python code runs the index.GET handler.
