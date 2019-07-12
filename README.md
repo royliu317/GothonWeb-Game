@@ -1,6 +1,6 @@
 # GothonWeb Game
- A web game made by Python.
-![spaceship](/img/spaceship.jpg)
+ A web game made by Python.  
+ ![spaceship](/img/spaceship.jpg)
 
 # Description
  This is a text-based adventure game called **Gothons From Planet Percal #25** running on web browser, which is similar with **Zork** or **Adventure**. 
